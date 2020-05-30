@@ -235,9 +235,9 @@
     <p style="position: fixed;right: 80px;bottom: 40px;font-size: 30px;color: white;letter-spacing: 10px;">MOFASLIGHT</p>
     <div class="warning">
         <p style="font-size: 22px;color: black;font-weight: 600;text-indent: 18px;font-family:Microsoft YaHei;">编辑时注意</p>
-        <p style="font-size: 20px;color: black;font-weight: lighter;margin-left: 18px;line-height: 36px;font-family:Microsoft YaHei;">1、编辑完成后才能点击第二个按钮</p>
-        <p style="font-size: 20px;color: black;font-weight: lighter;margin-left: 18px;line-height: 36px;font-family:Microsoft YaHei;">2、第二个按钮只允许点击一次</p>
-        <p style="font-size: 20px;color: black;font-weight: lighter;margin-left: 18px;line-height: 36px;font-family:Microsoft YaHei;">3、每个参数位置不能留空</p>
+        <p style="font-size: 20px;color: black;font-weight: lighter;margin-left: 18px;line-height: 36px;font-family:Microsoft YaHei;">1、编辑完成后才能点击生成按钮</p>
+        <p style="font-size: 20px;color: black;font-weight: lighter;margin-left: 18px;line-height: 36px;font-family:Microsoft YaHei;">2、生成按钮只允许点击一次</p>
+        <p style="font-size: 20px;color: black;font-weight: lighter;margin-left: 18px;line-height: 36px;font-family:Microsoft YaHei;">3、每个参数位置建议不留空</p>
     </div>
     <div class="btn_box">
         <button class="add_btn" id="addHang"><svg style="transform: rotate(90deg);box-shadow :5px -5px 10px rgba(0,0,0,0.5)" t="1590823393238" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2894" width="50" height="50"><path d="M604.816 336h-304v-96l-192 192 192 192v-96h304z" fill="#40C4FF" p-id="2895"></path><path d="M300.816 632a8.064 8.064 0 0 1-5.664-2.336l-192-192a8 8 0 0 1 0-11.312l192-192a8 8 0 1 1 13.664 5.664v88h296a8 8 0 0 1 8 8v192a8 8 0 0 1-8 8h-296V624a8 8 0 0 1-8 8zM120.128 432l172.688 172.688V528a8 8 0 0 1 8-8h296v-176h-296a8 8 0 0 1-8-8v-76.688L120.128 432z" fill="#263238" p-id="2896"></path><path d="M876.816 704l-192-192v96h-304v192h304v96z" fill="#FF5252" p-id="2897"></path><path d="M684.816 904a8 8 0 0 1-8-8v-88h-296a8 8 0 0 1-8-8V608a8 8 0 0 1 8-8h296V512a8 8 0 0 1 13.664-5.664l192 192a8 8 0 0 1 0 11.312l-192 192a8 8 0 0 1-5.664 2.352z m-296-112h296a8 8 0 0 1 8 8v76.688L865.504 704 692.816 531.312V608a8 8 0 0 1-8 8h-296v176zM896 440H736a8 8 0 0 1 0-16h160a8 8 0 0 1 0 16zM944 440h-16a8 8 0 0 1 0-16h16a8 8 0 0 1 0 16zM288 731.168H128a8 8 0 0 1 0-16h160a8 8 0 0 1 0 16zM96 731.184H80a8 8 0 0 1 0-16h16a8 8 0 0 1 0 16zM668.816 168h-64a8 8 0 0 1 0-16h64a8 8 0 0 1 0 16z" fill="#263238" p-id="2898"></path><path d="M636.816 200a8 8 0 0 1-8-8V128a8 8 0 0 1 16 0v64a8 8 0 0 1-8 8z" fill="#263238" p-id="2899"></path><path d="M764.816 256h-64a8 8 0 0 1 0-16h64a8 8 0 0 1 0 16z" fill="#263238" p-id="2900"></path><path d="M732.816 288a8 8 0 0 1-8-8v-64a8 8 0 0 1 16 0v64a8 8 0 0 1-8 8z" fill="#263238" p-id="2901"></path></svg></button>
@@ -346,7 +346,6 @@
 
     <!-- js&jq -->
     <script>
-<<<<<<< HEAD
         //（旧）页面加载完成时触发函数
         //$(document).ready(function() {
         // $("#addBtn").hide();
@@ -355,11 +354,6 @@
         $(function() {
             $("#removeBtn").hide();
         });
-=======
-        // $(document).ready(function() {
-        //     $("#addBtn").hide();
-        // })
->>>>>>> c1ecd8c5f644ed661e5282c88b0b3af4a3ccdbf9
         // $("#input1").focus(function() {
         //     $("#addBtn").show();
 
@@ -391,12 +385,9 @@
             console.log(index);
         });
 
-<<<<<<< HEAD
         // if(value1 == ""){
         //     $("#addBtn").hide()
         // }
-=======
->>>>>>> c1ecd8c5f644ed661e5282c88b0b3af4a3ccdbf9
         //点击按钮保存
         $("#addBtn").click(function() {
             $("#addBtn").addClass('addBtnClick'); //点击后的样式
@@ -446,12 +437,9 @@
             // alert(index);
             $("#row" + index).remove();
             index--;
-<<<<<<< HEAD
             if (index == 4) {
                 $("#removeBtn").hide();
             }
-=======
->>>>>>> c1ecd8c5f644ed661e5282c88b0b3af4a3ccdbf9
             // alert(index);
         });
 
