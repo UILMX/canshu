@@ -232,7 +232,13 @@
 
     <!-- 这里以下不用复制（按钮模块）不用复制不用复制不用复制不用复制不用复制不用复制 -->
     <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590837578030&di=293d22abaf3524da955ea162fc782e1e&imgtype=0&src=http%3A%2F%2Fimg0.pconline.com.cn%2Fpconline%2F1410%2F17%2F5585300_01.jpg" alt="文档背景" class="canshuBg">
-    <p style="position: fixed;right: 80px;bottom: 40px;font-size: 30px;color: white;letter-spacing: 10px;">MOFASLIGHT</p>
+    <div id="logo">
+        <p style="position: fixed;right: 80px;bottom: 40px;font-size: 30px;color: black;letter-spacing: 10px;background-color: white;padding: 20px;border-radius: 10px;text-align: center;">MOFASLIGHT</p>
+        <div style="position: fixed;right: 80px;bottom: 80px;width: 300px;height: 50px;overflow: hidden;opacity: 0.95;">
+            <div style="width: 300px;height: 40px;background-color: white;position: absolute;left: 0;" class="coverblock"></div>
+            <!-- <div style="width: 20px;height: 5px;background-color: black;position: absolute;left: 0;bottom: 10px;" class="bottomblock"></div> -->
+        </div>
+    </div>
     <div class="warning">
         <p style="font-size: 22px;color: black;font-weight: 600;text-indent: 18px;font-family:Microsoft YaHei;">编辑时注意</p>
         <p style="font-size: 20px;color: black;font-weight: lighter;margin-left: 18px;line-height: 36px;font-family:Microsoft YaHei;">1、编辑完成后才能点击生成按钮</p>
@@ -246,6 +252,22 @@
     </div>
 
     <style>
+        /* logo动画 */
+        
+        .bottomblock {
+            animation: cover 2s infinite;
+        }
+        
+        .coverblock {
+            animation: cover 2s infinite;
+        }
+        
+        @keyframes cover {
+            50% {
+                left: 278px;
+            }
+        }
+        
         #svg_10 {
             transition: 0.5s all;
         }
@@ -320,6 +342,10 @@
             outline: none;
         }
         
+        textarea::-webkit-input-placeholder {
+            opacity: 0.5;
+        }
+        
         input::-webkit-input-placeholder {
             opacity: 0.5;
         }
@@ -358,12 +384,13 @@
             fill: #5182c2;
             transition: 1s all;
         }
-        /* .add_btn:hover .moveRect {
-            width: 91.97px;
+        /* #cls-1,
+        #cls-1 {
+            transition: 0.5s;
         }
         
-        .add_btn:hover .moveRect2 {
-            width: 20.8px;
+        .add_btn:hover #cls-1 {
+            transform: rotate(180deg);
         } */
         
         .add_btn1:hover {
@@ -397,6 +424,7 @@
             //（新）
         $(function() {
             $("#removeBtn").hide();
+            $("#logo").hide();
         });
         // $("#input1").focus(function() {
         //     $("#addBtn").show();
@@ -462,7 +490,7 @@
 
                 var value1 = $("#input" + i).val();
                 if (value1 == "") {
-                    alert("产品信息数据不完整，请检查");
+                    alert("产品信息数据不完整，请检查一下哦");
                     bb = false;
                     return;
                 }
@@ -517,7 +545,8 @@
             }
             // $("#addBtn").hide();
             $("#addBtn").addClass('addBtnClick'); //点击后的样式
-
+            $("#logo").show();
+            alert('填写完成,请勿再次点击')
         });
 
 
