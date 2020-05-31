@@ -420,19 +420,19 @@
         //点击按钮保存
         $("#addBtn").click(function() {
             $("#addBtn").addClass('addBtnClick'); //点击后的样式
-            alert("请确认内容")
+            // alert("请确认内容")
             for (var i = 1; i < 9; i++) {
                 //alert(1);
                 var wochile = true;
                 for (var j = 1; j < 5; j++) {
                     var value1 = $("#tArea" + i + j).val();
-                    //alert("我下面执行了");
-                    //alert(value1);
-                    // if (value1 == "") {
-                    //     alert("不能为空");
-                    //     wochile = false;
-                    //     return wochile;
-                    // }
+                    // alert("我下面执行了");
+                    // alert(value1);
+                    if (value1 == "") {
+                        alert("不能为空哦---0.0");
+                        // wochile = false;
+                        return;
+                    }
                     // return wochile;
                     // alert("我没有推出循环");
                     var str = '<div style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;margin-left:18px;line-height:25px;padding:10px 0">' + value1 + '</div>';
@@ -441,6 +441,7 @@
                     // alert(value1);
                     console.log(value1);
                 }
+                $("#svg_10").css("fill", "#3ea740");
             }
 
 
