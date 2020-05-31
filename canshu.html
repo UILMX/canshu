@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -276,8 +276,9 @@
         .btn_box {
             position: fixed;
             display: flex;
-            top: 750px;
+            bottom: 50px;
             left: 850px;
+            z-index: 100;
         }
         
         .add_btn {
@@ -354,7 +355,7 @@
         }
         
         .moveRect2 {
-            fill: #fff;
+            fill: #5182c2;
             transition: 1s all;
         }
         
@@ -418,23 +419,47 @@
         //     $("#addBtn").hide()
         // }
         //点击按钮保存
+        var bb = true;
         $("#addBtn").click(function() {
-            $("#addBtn").addClass('addBtnClick'); //点击后的样式
-            // alert("请确认内容")
-            for (var i = 1; i < 9; i++) {
-                //alert(1);
-                var wochile = true;
+
+            bb = true;
+
+            for (var i = 1; i < 10; i++) {
+
+                var value1 = $("#input" + i).val();
+                if (value1 == "") {
+                    alert("产品信息数据不完整，请检查");
+                    bb = false;
+                    return;
+                }
+            }
+
+
+            for (var i = 1; i < index - 2; i++) {
+                if (bb == false) {
+                    return;
+                }
                 for (var j = 1; j < 5; j++) {
+
                     var value1 = $("#tArea" + i + j).val();
-                    // alert("我下面执行了");
-                    // alert(value1);
+
                     if (value1 == "") {
-                        alert("不能为空哦---0.0");
-                        // wochile = false;
+                        alert("svg数据不完整，请检查");
+                        bb = false;
                         return;
                     }
-                    // return wochile;
-                    // alert("我没有推出循环");
+                }
+            }
+
+            if (bb == false) {
+                return;
+            }
+
+            for (var i = 1; i < index - 2; i++) {
+
+                for (var j = 1; j < 5; j++) {
+                    var value1 = $("#tArea" + i + j).val();
+
                     var str = '<div style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;margin-left:18px;line-height:25px;padding:10px 0">' + value1 + '</div>';
                     $("#gBox" + i + j).html("");
                     $("#gBox" + i + j).append(str);
@@ -449,10 +474,6 @@
 
                 var value1 = $("#input" + i).val();
 
-                // if (value1 == "") {
-                //     alert("不能这样写");
-                //     return false;
-                // }
                 var str = '<div style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;margin-left:28px;border: none;width: 160px;">' + value1 + '</div>';
 
                 $("#div" + i).html("");
@@ -460,6 +481,8 @@
                 console.log(value1);
             }
             // $("#addBtn").hide();
+            $("#addBtn").addClass('addBtnClick'); //点击后的样式
+
         });
 
         //点击按钮删除行
