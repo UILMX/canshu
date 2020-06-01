@@ -298,7 +298,7 @@
         #skuTips{
             border: none;
             outline: none;
-            width: 50px;
+            width: 55px;
             background-color: none;
             height: 50px;
             font-size: 50px;
@@ -309,6 +309,8 @@
             left: 0;
             right: 0;
             margin: auto;
+            text-overflow: clip;
+            padding: 5px;
         }
         .sku_num{
             width: 50px;
@@ -536,7 +538,9 @@
 
             // console.log(index - 3); //输出SKU行数
 
-            $('#skuTips').attr("placeholder",index-3);//输出当前sku到input placeholder
+            var skuIndex = index-3;//sku显示到dom的参数
+
+            $('#skuTips').attr("placeholder",skuIndex);//输出当前sku到input placeholder
 
         });
 
@@ -547,7 +551,7 @@
             $("#row" + index).remove();
             index--;
             if (index == 4) {
-                // $("#removeBtn").hide();
+                $("#removeBtn").hide();
                 $(".cls-4").css("fill","gray");
                 
             }
@@ -556,7 +560,10 @@
 
             console.log(index - 3);
 
-            $('#skuTips').attr("placeholder",index-3);//输出当前sku到input placeholder
+            var skuIndex = index-3;//sku显示到dom的参数
+
+            $('#skuTips').attr("placeholder",skuIndex);//输出当前sku到input placeholder
+            
 
         });
 
