@@ -300,8 +300,8 @@
             bottom: 10px;
             left: 858px;
             display: grid;
-            grid-template-columns: 1fr;
-            grid-gap: 0;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 3rem;
         }
         
         .sku_show_num {
@@ -395,7 +395,7 @@
         .btn_box {
             position: fixed;
             display: flex;
-            bottom: 400px;
+            bottom: 350px;
             left: 848px;
             z-index: 100;
         }
@@ -430,8 +430,8 @@
             color: white;
             margin: 10px;
             position: fixed;
-            right: 80px;
-            bottom: 100px;
+            right: 75px;
+            bottom: 200px;
         }
         
         input {
@@ -717,7 +717,7 @@
                 if (i == 1 || j == 1) {
                     docName = value1;
                 }
-                var str = '<div style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;margin-left:28px;border: none;width: 160px;line-height:30px;word-break:break-all;word-wrap:break-word;">' + value1 + '</div>';
+                var str = '<p style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;margin-left:28px;border: none;width: 160px;line-height:30px;word-break:break-all;word-wrap:break-word;">' + value1 + '</p>';
 
                 $("#div" + i).html("");
                 $("#div" + i).append(str);
@@ -730,7 +730,7 @@
                 for (var j = 1; j < 5; j++) {
                     var value1 = $("#tArea" + i + j).val();
 
-                    var str = '<div style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;margin-left:18px;line-height:30px;padding:10px 0;word-break:break-all;word-wrap:break-word;">' + value1 + '</div>';
+                    var str = '<p style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;margin-left:18px;line-height:30px;padding:10px 0;word-break:break-all;word-wrap:break-word;">' + value1 + '</p>';
                     //$("#gBox" + i + j).html("");
                     // $("#gBox" + i + j).append(str);
                     $("#gBox" + i + j).html(str);
