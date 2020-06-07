@@ -230,9 +230,6 @@
         </div>
     </div>
 
-
-
-
     <!-- 这里以下不用复制（按钮模块）不用复制不用复制不用复制不用复制不用复制不用复制 -->
     <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590985830851&di=52ced51ba2b0e9e3f8c5241a7b5c646b&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201503%2F16%2F185602etd848yutd9uyt88.jpg" alt="文档背景" class="canshuBg">
     <div id="logo">
@@ -497,28 +494,34 @@
             transform: scale(1.02);
             background-color: rgb(167, 54, 54);
         }
-/* 隐藏滚动条样式 兼容chrome safari ie10+ firefox*/
-
-        .element::-webkit-scrollbar { width: 0 !important }
-
-        .element { -ms-overflow-style: none; }
-
-        .element { overflow: -moz-scrollbars-none; }
-
-/* textarea,input的focus无边框 */
-
-        textarea:focus{
+        /* 隐藏滚动条样式 兼容chrome safari ie10+ firefox*/
+        
+        .element::-webkit-scrollbar {
+            width: 0 !important
+        }
+        
+        .element {
+            -ms-overflow-style: none;
+        }
+        
+        .element {
+            overflow: -moz-scrollbars-none;
+        }
+        /* textarea,input的focus无边框 */
+        
+        textarea:focus {
             border: none;
             outline: none;
             box-shadow: none;
         }
-        input:focus{
+        
+        input:focus {
             border: none;
             outline: none;
             box-shadow: none;
         }
-
-        textarea::-webkit-scrollbar{
+        
+        textarea::-webkit-scrollbar {
             width: 0;
             background-color: none;
         }
@@ -535,84 +538,55 @@
 
 
     <!-- 逻辑层 -->
-    <script>
 
-// 点击生成自动保存
+
+    <script>
+        // 点击生成自动保存
         var docName = "";
 
         function fake_click(obj) {
-
             var ev = document.createEvent("MouseEvents");
-
             ev.initMouseEvent(
-
                 "click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null
-
             );
-
             obj.dispatchEvent(ev);
-
         }
 
         function export_raw(name, data) {
-
             var urlObject = window.URL || window.webkitURL || window;
-
             var export_blob = new Blob([data]);
-
             var save_link = document.createElementNS("http://www.w3.org/1999/xhtml", "a")
-
             save_link.href = urlObject.createObjectURL(export_blob);
-
             save_link.download = name;
-
             fake_click(save_link);
-
         }
-        
-        function gg() {//字符串拼接（保存的内容）
 
+        function gg() { //字符串拼接（保存的内容）
             var str = "";
-
             str += '<div id="total" style="width: 790px;background: #c2a66e; padding-bottom: 50px;">';
-
             str += $("#total").html();
-
             str += '</div>';
-
             // str.replace("<", "1<");
             // str.replace(">", "1>");
-
             export_raw(docName, str);
-
         }
 
 
-
-// 鼠标经过添加行按钮svg动画
+        // 鼠标经过添加行按钮svg动画
         $("#addHang").mouseover(function() {
-
             $(".moveRect").attr("y", "117.19");
-
-
         })
         $("#addHang").mouseout(function() {
-
             $(".moveRect").attr("y", "79.19");
-
         })
 
 
-// 鼠标经过减少行按钮svg动画
+        // 鼠标经过减少行按钮svg动画
         $("#removeBtn").mouseover(function() {
-
             $(".moveRect2").attr("y", "41.19");
-
         })
         $("#removeBtn").mouseout(function() {
-
             $(".moveRect2").attr("y", "79.19");
-
         })
 
 
@@ -620,68 +594,72 @@
         //$(document).ready(function() {
         // $("#addBtn").hide();
         //})
-        //（新）
 
+        // 页面加载完成时触发函数
         $(function() {
-
             $("#removeBtn").hide();
-
             $("#logo").hide();
-
         });
 
+        // 测试第一个输入框聚焦显示按钮
         // $("#input1").focus(function() {
         //     $("#addBtn").show();
         // })
 
         var index = 4;
-
         var skuIndex = index - 3; //sku显示到dom的参数
 
-// 点击新增一行SKU（调用函数addRows）
-
+        // 点击新增一行SKU（调用函数addRows）
         $('#addHang').click(addRows);
 
-//点击删除一行SKU
+        //点击删除一行SKU(调用函数delRows)
+        $("#removeBtn").click(delRows);
 
-        $("#removeBtn").click(function() {
+        // *****封装删减行函数delRows
+        function delRows() {
             // alert(index);
             $("#row" + index).remove();
             index--;
             if (index == 4) {
                 $("#removeBtn").hide();
                 $(".cls-4").css("fill", "gray");
-
             }
             // alert(index);
-
             console.log(index - 3);
-
             //  var skuIndex = index - 3; //sku显示到dom的参数,已经声明在全局了
-
             //输出当前sku到input placeholder
             $("#skuShowNum").attr("placeholder", index - 3);
+        }
 
-
-
-        });
-
+        // *****封装添加行函数addRows
+        function addRows() {
+            // document.getElementById("Oinput").reset();
+            index += 1;
+            if (index > 4) {
+                $("#removeBtn").show();
+            }
+            var newData = "";
+            newData += '<div style="width: 636px;border-bottom: 1px solid #b3b2b0;overflow: hidden;display: flex;padding: 10px 10px 10px 0;" id="row' + index + '">';
+            for (var i = 1; i < 5; i++) {
+                //newData = "";
+                newData += '<!-- 新增个 --><div style="width:159px;"><div style="margin-left: 1px;" id="gBox' + (index - 3) + i + '">';
+                newData += '<textarea name="" id="tArea' + (index - 3) + i + '" style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;margin-left:18px;line-height: 25px;border: none;resize : none;overflow-x: hidden;width: 145px;" placeholder="请输入参数"></textarea>';
+                newData += '  </div></div>';
+            }
+            newData += '</div>';
+            $('#tab').append(newData);
+            // $('#gBox5').append(newData);
+            // console.log(currentSku);
+            // console.log(index - 3); //输出SKU行数
+            $("#skuShowNum").attr("placeholder", index - 3);
+        }
 
         //事件绑定，回车按钮实现多行添加
         $('#skuInput').bind('keyup', function(event) {　　
-
-
-            if (event.keyCode == "13") {　　　　 //回车执行查询
-                　
+            if (event.keyCode == "13") {　　　　 //回车执行查询 　
                 // alert("我回车了");　　　
-                function atn111() {
+                function addMore() {
                     var skuCount = $('#skuInput').val();
-                    // var jj = -index + 4;
-                    // if (skuCount + jj < 2) {
-                    //     return;
-                    // }
-                    // alert(skuCount - skuIndex);
-                    // alert("skuCount:" + skuCount + "(- index + 4):" + (-index + 4));
                     var j = 0;
                     for (var i = 1; i < skuCount - index + 4 + j; i++) {
                         // alert(skuCount - index + 4 + j);
@@ -690,57 +668,13 @@
                         //index++;
                     }
                 };　　
-                atn111();
+                addMore();
                 // $('#skuTips').val(skuIndex + 1);
-                //输出当前sku到input placeholder
+                //输出当前sku到页面 placeholder
                 $('#skuTips').attr("placeholder", skuIndex + 1);
             }
-
-
-
         });
 
-
-// 封装添加行函数addRows
-        function addRows() {
-
-            // document.getElementById("Oinput").reset();
-
-            index += 1;
-
-            if (index > 4) {
-
-                $("#removeBtn").show();
-
-            }
-
-            var newData = "";
-
-            newData += '<div style="width: 636px;border-bottom: 1px solid #b3b2b0;overflow: hidden;display: flex;padding: 10px 10px 10px 0;" id="row' + index + '">';
-
-            for (var i = 1; i < 5; i++) {
-
-                //newData = "";
-
-                newData += '<!-- 新增个 --><div style="width:159px;"><div style="margin-left: 1px;" id="gBox' + (index - 3) + i + '">';
-
-                newData += '<textarea name="" id="tArea' + (index - 3) + i + '" style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;margin-left:18px;line-height: 25px;border: none;resize : none;overflow-x: hidden;width: 145px;" placeholder="请输入参数"></textarea>';
-                
-                newData += '  </div></div>';
-
-            }
-
-            newData += '</div>';
-            
-            $('#tab').append(newData);
-
-            // $('#gBox5').append(newData);
-            // console.log(currentSku);
-            // console.log(index - 3); //输出SKU行数
-
-            $("#skuShowNum").attr("placeholder", index - 3);
-
-        }
 
         // if(value1 == ""){
         //     $("#addBtn").hide()
@@ -748,11 +682,9 @@
         //点击按钮保存
         var bb = true;
         $("#addBtn").click(function() {
-
             bb = true;
-
+            // 点击按钮时判断按钮val是否为空
             for (var i = 1; i < 10; i++) {
-
                 var value1 = $("#input" + i).val();
                 if (value1 == "") {
                     alert("产品信息数据不完整，请检查一下哦");
@@ -760,16 +692,12 @@
                     return;
                 }
             }
-
-
             for (var i = 1; i < index - 2; i++) {
                 if (bb == false) {
                     return;
                 }
                 for (var j = 1; j < 5; j++) {
-
                     var value1 = $("#tArea" + i + j).val();
-
                     if (value1 == "") {
                         alert("数据不完整，请检查一下哦");
                         bb = false;
@@ -777,31 +705,26 @@
                     }
                 }
             }
-
             if (bb == false) {
                 return;
             }
-            //input append
+
+            //上半部分的 append
             for (var i = 1; i < 10; i++) {
-
                 var value1 = $("#input" + i).val();
-
                 if (i == 1 || j == 1) {
                     docName = value1;
                 }
                 var str = '<p style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;width: 145px;line-height:30px;margin:-3px 0 0 28px">' + value1 + '</p>';
-
                 $("#div" + i).html("");
                 $("#div" + i).append(str);
                 console.log(value1);
             }
 
-            //textarea append
+            //下半部分的 append
             for (var i = 1; i < index - 2; i++) {
-
                 for (var j = 1; j < 5; j++) {
                     var value1 = $("#tArea" + i + j).val();
-
                     var str = '<p style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;width: 145px;line-height:30px;margin:-3px 0 0 18px">' + value1 + '</p>';
                     //$("#gBox" + i + j).html("");
                     // $("#gBox" + i + j).append(str);
@@ -814,18 +737,14 @@
             // $("#addBtn").hide();
             $("#addBtn").addClass('addBtnClick'); //点击后的样式
             $("#logo").show();
-            // alert('填写完成,请勿再次点击')
-
-
+            alert('填写完成,请勿再次点击')
             $(this).attr("disabled", "true"); //生成后按钮失效
             $('#removeBtn').attr("disabled", "true"); //生成后按钮失效
             $('#addHang').attr("disabled", "true"); //生成后按钮失效
             $(".cls-4").css("fill", "gray");
             $(".cls-5").css("fill", "gray");
             $('.comLogo').css("right", "80px");
-
             gg();
-
         });
 
         // function saveAs(){
@@ -837,31 +756,23 @@
         // } 
         // $('#skuShowBox').click(function(){
         //     console.log(321321321);
-
         // })
-
-
         // 最尾部的length获取焦点时，显示保存按钮
         // var tIndex = $('textarea').length;
         // $($('textarea')[tIndex - 1]).click(function() {
         //     $("#addBtn").show();
         //     alert(tIndex)
         // });
-
-
         //var pinchuan = "";
         //$("#input1").focus(function() {
         // this.setAttribute("value", "");
         // var newValue = document.getElementById('input').innerHTML;
-
         //}).blur(function() {
         // var newValue = document.getElementById('input').innerHTML;
         // this.setAttribute("value", "newValue");
         // for (var i = 1; i < 3; i++) {
-
         //  }
         //});
-
         // $("#addBtn").click(function() {
         //     for (var i = 1; i < 3; i++) {
         //         pinchuan = "#input" + i;
@@ -872,22 +783,16 @@
         //         console.log(value1);
         //     }
         // });
-
         // $("#addBtn").click(function() {
         //     $("#addBtn").addClass('addBtnClick') //点击后按钮的样式
-
         //     for (var i = 1; i < 10; i++) {
-
         //         var value1 = $("#input" + i).val();
-
         //         var str = '<div style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;margin: 0 0 0 28px;border: none;width: 160px;">' + value1 + '</div>';
-
         //         $("#div" + i).html("");
         //         $("#div" + i).append(str);
         //         console.log(value1);
         //     }
         // });
-
         // $("#input").focus(function() {
         //     if (!!!$(this).prop("readonly")) {
         //         $(this).prop("placeholder", "")
