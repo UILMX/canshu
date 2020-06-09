@@ -222,7 +222,7 @@
                     <div style="height: 100%;">
                         <div style="position: relative;margin-top: 40px;">
                             <p style="font-size: 22px;color: #5e543f;font-weight: 600;text-indent: 18px;font-family:Microsoft YaHei;margin:10px 0;">注意</p>
-                            <p style="font-size: 20px;color: #474440;font-weight: lighter;margin-left: 18px;line-height: 36px;font-family:Microsoft YaHei;">产品尺寸为手工测量，出现少许偏差为正常现象；光源亮度取决于灯泡瓦数，可另行自主选购；页面展示的适用空间仅供参考。</p>
+                            <p style="font-size: 20px;color: #474440;font-weight: lighter;margin-left: 18px;line-height: 36px;font-family:Microsoft YaHei;">①&nbsp;&nbsp;本店默认赠送暖光光源，家用温馨舒适，亮度不刺眼，若对光源有特殊要求，可联系客服；<br/>②&nbsp;&nbsp;价格公道实惠，工程或批发客户可发清单过来客服单独报价；<br/>③&nbsp;&nbsp;部分产品支持定制，如有要求可联系在线客服。</p>
                         </div>
                     </div>
                 </div>
@@ -725,7 +725,7 @@
             for (var i = 1; i < index - 2; i++) {
                 for (var j = 1; j < 5; j++) {
                     var value1 = $("#tArea" + i + j).val();
-                    var str = '<p style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;width: 145px;line-height:30px;margin:-3px 0 0 18px">' + value1 + '</p>';
+                    var str = '<p style="font-size: 20px;color: #474440;font-weight: lighter;opacity: 0.8;font-family:Microsoft YaHei;width: 145px;line-height:30px;margin:-3px 0 0 18px;margin-left:18px;padding:10px 0">' + value1 + '</p>';
                     //$("#gBox" + i + j).html("");
                     // $("#gBox" + i + j).append(str);
                     $("#gBox" + i + j).html(str);
@@ -737,7 +737,7 @@
             // $("#addBtn").hide();
             $("#addBtn").addClass('addBtnClick'); //点击后的样式
             $("#logo").show();
-            alert('填写完成,请勿再次点击')
+            // alert('填写完成,请勿再次点击')
             $(this).attr("disabled", "true"); //生成后按钮失效
             $('#removeBtn').attr("disabled", "true"); //生成后按钮失效
             $('#addHang').attr("disabled", "true"); //生成后按钮失效
