@@ -40,6 +40,9 @@
         
         #iFo{
             margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 750px;
         }
         .btn_tips {
             position: absolute;
@@ -257,15 +260,26 @@
                         $(n).css("background",'#191a1b');
                     }
                 });
-                newName =$("#div1 p").text()+"(用于淘宝)";//获取粘贴产品参数的型号
 
-                // alert(newName)
+                //获取粘贴产品参数的型号
+                docTitle();
 
                 gg();
 
             }
             
         }
+        
+        //遍历所有p标签来获取产品参数
+        function docTitle(){
+            $.each($("p"),function(i,n){
+                if($(n).text()=="生产编码"){
+                    $(n).css("width","750px");
+                    newName = $(n).next().text()+"(用于淘宝)";
+                }
+            })
+        };
+
         function enter_btn(a) {
             if(a==13){
                 // alert('你点击了回车键')
