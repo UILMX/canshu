@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOFASLIGHT参数表</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+
+</head>
+
+<body>
+    <div class="transBox">
+        <textarea id="wenbenyu" class="transTextarea" placeholder="请粘贴天猫后台产品参数代码" onkeydown="enter_btn(event.keyCode)"></textarea>
+    </div>
+
+    <div id="iFo"></div>
+    <!-- 这里以下不用复制（按钮模块）不用复制不用复制不用复制不用复制不用复制不用复制 -->
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590985830851&di=52ced51ba2b0e9e3f8c5241a7b5c646b&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201503%2F16%2F185602etd848yutd9uyt88.jpg" alt="文档背景" class="canshuBg">
+    
+    <button class="add_btn1" id="addBtn"><p class="btn_tips">生成</p><svg t="1590859515979" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1610" width="50" height="50"><path d="M832 988.8H192c-70.4 0-128-57.6-128-128v-544c0-70.4 57.6-128 128-128h640c70.4 0 128 57.6 128 128v544c0 70.4-57.6 128-128 128z" fill="#E1E1DF" p-id="1611"></path><path d="M536 931.2h-256c-70.4 0-128-57.6-128-128v-640c0-70.4 57.6-128 128-128h256c70.4 0 128 57.6 128 128v640c0 70.4-57.6 128-128 128z" fill="#4E8DF6" p-id="1612"></path><path d="M536 235.2h-112c-12.8 0-24-11.2-24-24s11.2-24 24-24h112c12.8 0 24 11.2 24 24s-11.2 24-24 24z" fill="#FFFFFF" p-id="1613"></path><path d="M296 211.2m-56 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0Z" fill="#FFFFFF" p-id="1614"></path><path d="M536 408h-112c-12.8 0-24-11.2-24-24s11.2-24 24-24h112c12.8 0 24 11.2 24 24s-11.2 24-24 24z" fill="#FFFFFF" p-id="1615"></path><path d="M296 384m-56 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0Z" fill="#FFFFFF" p-id="1616"></path><path d="M536 596.8h-112c-12.8 0-24-11.2-24-24s11.2-24 24-24h112c12.8 0 24 11.2 24 24 0 14.4-11.2 24-24 24z" fill="#FFFFFF" p-id="1617"></path><path d="M296 572.8m-56 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0Z" fill="#FFFFFF" p-id="1618"></path><path d="M872 553.6l-172.8-99.2c-14.4-8-33.6-8-48 0L480 553.6c-14.4 8-24 24-24 41.6v198.4c0 17.6 9.6 33.6 24 41.6l172.8 99.2c14.4 8 33.6 8 48 0l172.8-99.2c14.4-8 24-24 24-41.6V595.2c-1.6-17.6-11.2-32-25.6-41.6z" fill="#2166CC" p-id="1619" id="svg_10"></path><path d="M747.2 598.4L640 712l-32-33.6c-14.4-14.4-36.8-14.4-51.2 0-14.4 16-14.4 38.4 0 52.8l54.4 59.2c6.4 8 16 11.2 25.6 11.2s19.2-3.2 25.6-11.2l131.2-139.2c14.4-14.4 16-38.4 1.6-52.8-11.2-14.4-35.2-14.4-48 0z" fill="#FFFFFF" p-id="1620"></path></svg></button>
+    <style>
+        .transTextarea {
+            margin-top: 20px;
+            border-radius: 10px;
+            width: 710px;
+            background-color: #1e1e1e;
+            border: none;
+            resize: none;
+            font-size: 16px;
+            font-family: 'Microsoft YaHei';
+            outline: none;
+            color: white;
+            padding: 20px;
+            height: 400px;
+            font-weight: lighter;
+            letter-spacing: 2px;
+        }
+        
+        #iFo{
+            margin-top: 20px;
+        }
+        .btn_tips {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        
+        @keyframes cover {
+            50% {
+                left: 278px;
+            }
+        }
+        
+        #svg_10 {
+            transition: 0.5s all;
+        }
+        
+        .add_btn1:hover #svg_10 {
+            fill: #3ea740;
+        }
+        
+        .canshuBg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -100;
+        }
+        
+        .warning {
+            position: fixed;
+            top: 50px;
+            left: 850px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 17px 17px 73px rgba(82, 71, 50, 30);
+            padding: 0 40px 0 10px;
+        }
+        
+        .btn_box {
+            position: fixed;
+            display: flex;
+            bottom: 300px;
+            left: 848px;
+            z-index: 100;
+        }
+        
+        .add_btn {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            background-color: #c2a66e;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+            transition: .5s all;
+            font-size: 20px;
+            color: white;
+            margin: 10px;
+            position: relative;
+        }
+        
+        .add_btn1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            background-color: #c2a66e;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+            transition: .5s all;
+            font-size: 20px;
+            color: white;
+            margin: 10px;
+            position: fixed;
+            right: 75px;
+            bottom: 200px;
+        }
+        
+        input {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            outline: none;
+        }
+        
+        textarea::-webkit-input-placeholder {
+            opacity: 0.5;
+        }
+        
+        input::-webkit-input-placeholder {
+            opacity: 0.5;
+        }
+        
+        .icon {
+            background-color: white;
+            padding: 8px;
+            border-radius: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            overflow: visible;
+            /* svg溢出显示 */
+            transition: .5s all;
+        }
+        
+        .addBtnClick {
+            background-color: rgb(52, 83, 52);
+        }
+        
+        .add_btn:hover {
+            transform: scale(1.02);
+            background-color: rgb(52, 83, 52);
+        }
+        
+        .moveRect {
+            fill: #5182c2;
+            transition: 0.5s all;
+        }
+        
+        .moveRect2 {
+            fill: #5182c2;
+            transition: 1s all;
+        }
+        
+        .add_btn1:hover {
+            transform: scale(1.02);
+            background-color: rgb(167, 54, 54);
+        }
+        /* 隐藏滚动条样式 兼容chrome safari ie10+ firefox*/
+        
+        .element::-webkit-scrollbar {
+            width: 0 !important
+        }
+        
+        .element {
+            -ms-overflow-style: none;
+        }
+        
+        .element {
+            overflow: -moz-scrollbars-none;
+        }
+        /* textarea的focus无边框 */
+        
+        textarea:focus {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        
+        textarea::-webkit-scrollbar {
+            width: 0;
+            background-color: none;
+        }
+        textarea::-webkit-input-placeholder {
+            color: white;
+            font-weight: lighter;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+
+
+
+
+
+
+
+    <!-- 逻辑层 -->
+
+    <script>
+        var newName;
+        // 页面加载完成时触发函数
+        $(function() {
+            // $("#logo").hide();
+        });
+
+        //点击按钮保存
+        var bb = true;
+        $("#addBtn").click(output);
+        function output() {
+            
+            var iFo = $("#wenbenyu").val();
+            if(iFo==''){
+                alert('请粘贴天猫参数表代码哦！')
+            }else{
+                $("#iFo").html(iFo);
+                $.each($("div"),function(i,n){
+
+                    //修改宽度
+                    if($(n).css("width")=="790px"){
+                        $(n).css("width","750px");
+                    }
+
+                    //快乐的一天，从调试开始
+                    //alert($("#colorBlack").css("background"));
+                    //修改颜色 #c2a66e
+                    // alert($(n).css("background"));
+
+                    if($(n).css("background")== 'rgb(194, 166, 110) none repeat scroll 0% 0% / auto padding-box border-box' ){
+                        $(n).css("background",'#191a1b');
+                    }
+
+                    //修改颜色 #e0c999
+                    if($(n).css("background")== 'rgb(224, 201, 153) none repeat scroll 0% 0% / auto padding-box border-box' ){
+                        $(n).css("background",'#191a1b');
+                    }
+                });
+                newName =$("#div1 p").text()+"(用于淘宝)";//获取粘贴产品参数的型号
+
+                // alert(newName)
+
+                gg();
+
+            }
+            
+        }
+        function enter_btn(a) {
+            if(a==13){
+                // alert('你点击了回车键')
+                output()
+            }
+        }
+
+        // 点击生成自动保存
+                
+        function fake_click(obj) {
+            var ev = document.createEvent("MouseEvents");
+            ev.initMouseEvent(
+                "click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null
+            );
+            obj.dispatchEvent(ev);
+        }
+
+        function export_raw(name, data) {
+            var urlObject = window.URL || window.webkitURL || window;
+            var export_blob = new Blob([data]);
+            var save_link = document.createElementNS("http://www.w3.org/1999/xhtml", "a")
+            save_link.href = urlObject.createObjectURL(export_blob);
+            save_link.download = name;
+            fake_click(save_link);
+        }
+
+        function gg() { //字符串拼接（保存的内容）
+            var str = $("#iFo").html();
+            // str.replace("<", "1<");
+            // str.replace(">", "1>");
+            export_raw(newName, str);
+        }
+     
+    </script>
+
+</body>
+
+</html>
